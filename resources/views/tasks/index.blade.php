@@ -16,8 +16,9 @@
 
         <form action="{{ route('tasks.store') }}" method="POST" class="mb-4">
             @csrf
-            <div class="flex mb-2">
-                <input type="text" name="task_name" class="border border-gray-300 p-2 w-full" required>
+            <div class="mb-2">
+                <label for="task_name">タスク</label>
+                <input type="text" name="task_name" id="task_name" class="border border-gray-300 p-2 w-full" required>
                 <input type="datetime-local" name="due_date" class="border p-2 ml-2" required>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">追加</button>
             </div>
