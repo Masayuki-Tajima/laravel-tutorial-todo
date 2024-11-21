@@ -24,6 +24,9 @@
                 </li>
             @endforeach
         </ul>
+        @if ($tasks->isEmpty())
+            <p class="text-center">ゴミ箱は空です。</p>
+        @endif
     </div>
 
 </body>
