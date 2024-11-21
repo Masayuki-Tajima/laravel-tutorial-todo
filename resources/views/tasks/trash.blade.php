@@ -23,6 +23,12 @@
                     </form>
                 </li>
             @endforeach
+            @if(count($tasks) > 0)
+                <form action="{{ route('tasks.deleteTrash') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-red-500 text-white p-2 rounded">ゴミ箱を空にする</button>
+                </form>
+            @endif
         </ul>
         @if ($tasks->isEmpty())
             <p class="text-center">ゴミ箱は空です。</p>
