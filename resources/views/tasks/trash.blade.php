@@ -6,7 +6,27 @@
     <title>Todoリストーゴミ箱</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-500">
+    <div class="container mx-auto p-4">
+        <nav class="flex justify-between">
+            <h1 class="text-2xl font-bold mb-4">ゴミ箱</h1>
+        </nav>
+
+        <ul class="list-disc pl-5">
+            @foreach ($tasks as $task )
+                <li class="mb-2">
+                    <div class="flex mb-2">
+                        <span>{{ $task->task_name }}</span>
+                        <form action="{{ route('tasks.recover', $task->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">復元</button>
+                        </form>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 
 </body>
 </html>
