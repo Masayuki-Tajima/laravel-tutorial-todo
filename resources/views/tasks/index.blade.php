@@ -11,6 +11,7 @@
     <div class="container mx-auto p-4">
         <nav class="flex justify-between">
             <h1 class="text-2xl font-bold mb-4">Todoリスト</h1>
+            <a href="{{ route('tasks.trash') }}">ゴミ箱</a>
         </nav>
 
         <form action="{{ route('tasks.store') }}" method="POST" class="mb-4">
