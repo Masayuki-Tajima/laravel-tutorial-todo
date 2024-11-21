@@ -14,15 +14,13 @@
 
         <ul class="list-disc pl-5">
             @foreach ($tasks as $task )
-                <li class="mb-2">
-                    <div class="flex mb-2">
-                        <span>{{ $task->task_name }}</span>
-                        <form action="{{ route('tasks.recover', $task->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">復元</button>
-                        </form>
-                    </div>
+                <li class="flex justify-between mb-2">
+                    <span>{{ $task->task_name }}</span>
+                    <form action="{{ route('tasks.recover', $task->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">復元</button>
+                    </form>
                 </li>
             @endforeach
         </ul>
