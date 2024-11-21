@@ -33,7 +33,8 @@
         @if ($tasks->isEmpty())
             <p class="text-center">ゴミ箱は空です。</p>
         @endif
-    </div>
 
+        <a href="{{ route('tasks.index') }}">タスク一覧に戻る</a>
+    </div>
 </body>
 </html>
