@@ -24,9 +24,16 @@
         </form>
     </div>
 
-    <ul>
+    <ul class="list-disc pl-5">
         @foreach ($tasks as $task )
-            <li>{{ $task->task_name }}</li>
+            <li class="flex justify-between mb-2">
+                <div>{{ $task->task_name }}:<span class="mx-5">{{ date('Y-m-d H:i', strtotime($task->due_date)) }}</span></div>
+                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded">Done!</button>
+                </form>
+            </li>
         @endforeach
     </ul>
 </body>
