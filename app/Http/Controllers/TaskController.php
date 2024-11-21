@@ -36,8 +36,8 @@ class TaskController extends Controller
 
     public function trash()
     {
-        $task = Task::getTrashTasks();
-        return view('tasks.trash', compact('task'));
+        $tasks = Task::getTrashTasks();
+        return view('tasks.trash', compact('tasks'));
     }
 
     public function recover($id)
