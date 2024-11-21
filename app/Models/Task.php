@@ -27,4 +27,24 @@ class Task extends Model
         $task->save();
         return $task;
     }
+
+    public static function getTrashTasks()
+    {
+        return self::where('is_deleted', true)->get();
+    }
+
+    public static function recoverTask($id)
+    {
+        $task = self::find($id);
+        $task->is_deleted = false;
+        $task->save();
+        return $task;
+    }
+
+    public static function deleteTrashTaskPermanently()
+    {
+        $task = self::where('is_deleted', true);
+        $task->delete();
+        return $task;
+    }
 }
